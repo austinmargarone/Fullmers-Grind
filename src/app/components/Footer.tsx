@@ -35,7 +35,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              121 Park Ave, Rochester, NY 14607
+              Buffalo, NY
             </Link>
           </p>{" "}
           <div className="flex my-[.5rem]">
@@ -70,9 +70,13 @@ const Footer = () => {
           </div>
           <div>
             <Link href={"https://www.fcvt.dev/"} target="_blank">
-              <button className="w-[205px] h-[42px] border flex flex-col items-start gap-[-3px]">
-                <span className="text-[.5rem]">Developed by</span>
-                <span className="pb-1">Flower City Virtual Tours</span>
+              <button className="w-[205px] h-[48px] border flex flex-col items-start gap-[-3px]">
+                <div className="flex flex-col  items-start m-auto">
+                  <span className="text-[.5rem] flex items-start">
+                    Developed by
+                  </span>
+                  <span className="pb-1">Flower City Virtual Tours</span>
+                </div>
               </button>
             </Link>
           </div>

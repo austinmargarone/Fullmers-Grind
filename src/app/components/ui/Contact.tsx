@@ -35,7 +35,7 @@ const CopyNumber = () => {
       >
         <ToastContainer />
         <p className="text-empower-whitetext">
-          <span className="hover:underline">(585) 409-0818</span>
+          <span className="hover:underline">Contact</span>
         </p>
       </button>
     </>

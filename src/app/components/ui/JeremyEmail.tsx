@@ -29,15 +29,13 @@ const JeremyEmail = () => {
     <>
       <button
         onClick={() => {
-          copyText("jeremy@empowerrealtygroupllc.com");
+          copyText("fullmersgrind@yahoo.com");
           notify();
         }}
       >
         <ToastContainer />
         <p className="text-empower-whitetext">
-          <span className="hover:underline">
-            jeremy@empowerrealtygroupllc.com
-          </span>
+          <span className="hover:underline">fullmersgrind@yahoo.com</span>
         </p>
       </button>
     </>
