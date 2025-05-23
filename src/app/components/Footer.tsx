@@ -8,17 +8,17 @@ const Footer = () => {
   return (
     <section className="w-full justify-center pt-[4rem] px-[1rem]">
       <div className="flex flex-col md:flex-row md:flex-wrap text-white justify-evenly md:gap-[.33rem] lg:gap-0">
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:flex-row">
           <Link href="/" passHref>
             <Image
-              src="/Logo.png"
+              src="/Logo.jpeg"
               alt="Fullmers Grind LLC"
               width={150}
               height={57}
               className="cursor-pointer"
             />
           </Link>
-          <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem]">
+          <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
             At Fullmers Grind LLC, we take pride in being a family-owned and
             operated business. We understand the importance of your property,
             and we are here to help you with all of your stump grinding and tree

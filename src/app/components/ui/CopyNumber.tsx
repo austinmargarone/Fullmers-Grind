@@ -18,7 +18,7 @@ const CopyNumber = () => {
       draggable: true,
       progress: undefined,
       style: {
-        backgroundColor: "#F7DF6C",
+        backgroundColor: "#E5AB00",
         color: "#000000",
         borderRadius: "10px",
         border: "2px solid #000000",
@@ -34,7 +34,7 @@ const CopyNumber = () => {
         }}
       >
         <ToastContainer />
-        <p className="text-empower-whitetext">
+        <p className="text-fullmer-whitetext">
           <span className="hover:underline">(585) 409-0818</span>
         </p>
       </button>
