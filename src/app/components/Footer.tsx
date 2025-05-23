@@ -9,15 +9,13 @@ const Footer = () => {
     <section className="w-full justify-center pt-[4rem] px-[1rem]">
       <div className="flex flex-col md:flex-row md:flex-wrap text-white justify-evenly md:gap-[.33rem] lg:gap-0">
         <div className="flex flex-col lg:flex-row">
-          <Link href="/" passHref>
-            <Image
-              src="/Logo.jpeg"
-              alt="Fullmers Grind LLC"
-              width={150}
-              height={57}
-              className="cursor-pointer"
-            />
-          </Link>
+          <Image
+            src="/Logo.jpeg"
+            alt="Fullmers Grind LLC"
+            width={574}
+            height={435}
+            className="w-[250px] h-auto rounded-xl"
+          />
           <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
             At Fullmers Grind LLC, we take pride in being a family-owned and
             operated business. We understand the importance of your property,
@@ -26,18 +24,11 @@ const Footer = () => {
             forward to serving you!
           </p>
         </div>
+
         <div className="flex flex-col py-[1.25rem] lg:py-0">
-          <h2 className="h4">Contact Info</h2>
-          <p className="mt-[.75rem]">
-            <Link
-              href="https://www.google.com/maps?q=121+Park+Ave,+Rochester,+NY+14607"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Buffalo, NY
-            </Link>
-          </p>{" "}
+          <h2 className="h4">Service Area: </h2>
+          <p className="mt-[.25rem]">Buffalo, NY</p>
+          <h2 className="h4">Contact Info:</h2>
           <div className="flex my-[.5rem]">
             <Image
               className="mr-[.5rem]"
@@ -61,12 +52,17 @@ const Footer = () => {
         <div className="flex flex-col">
           <div className="mb-[1.25rem] lg:mb-[2.25rem]">
             <h2 className="h4 mb-[.75rem]">Follow Us</h2>
-            <Image
-              src={"/Insta.svg"}
-              alt={"Instagram"}
-              width={32}
-              height={32}
-            ></Image>
+            <Link
+              href="https://www.facebook.com/share/1C4tFpuSw9/?mibextid=wwXIfr"
+              target="_blank"
+            >
+              <Image
+                src={"/Insta.svg"}
+                alt={"Facebook"}
+                width={32}
+                height={32}
+              ></Image>
+            </Link>
           </div>
           <div>
             <Link href={"https://www.fcvt.dev/"} target="_blank">
