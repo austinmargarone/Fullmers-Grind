@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -5,7 +6,7 @@ import React from "react";
 import { ThemeProvider } from "../../ThemeProvider";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
+import ToastProvider from "./components/ui/ToastProvider";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -44,6 +45,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <ToastProvider /> {/* ✅ render it here */}
         </ThemeProvider>
       </body>
     </html>

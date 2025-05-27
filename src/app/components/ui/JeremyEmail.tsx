@@ -1,44 +1,25 @@
 "use client";
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const JeremyEmail = () => {
   function copyText(entryText: string) {
     navigator.clipboard.writeText(entryText);
   }
 
-  const notify = () =>
-    toast("Copied Jeremy's Email", {
-      position: "top-center",
-      autoClose: 4200,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      style: {
-        backgroundColor: "#E5AB00",
-        color: "#000000",
-        borderRadius: "10px",
-        border: "2px solid #000000",
-      },
-    });
+  const notify = () => toast("Copied Jeremy's Email");
 
   return (
-    <>
-      <button
-        onClick={() => {
-          copyText("fullmersgrind@yahoo.com");
-          notify();
-        }}
-      >
-        <ToastContainer />
-        <p className="text-fullmer-whitetext">
-          <span className="hover:underline">fullmersgrind@yahoo.com</span>
-        </p>
-      </button>
-    </>
+    <button
+      onClick={() => {
+        copyText("fullmersgrind@yahoo.com");
+        notify();
+      }}
+    >
+      <p className="text-fullmer-whitetext">
+        <span className="hover:underline">fullmersgrind@yahoo.com</span>
+      </p>
+    </button>
   );
 };
 

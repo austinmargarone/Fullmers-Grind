@@ -17,10 +17,10 @@ const Footer = () => {
             className="w-[250px] h-auto rounded-xl"
           />
           <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
-            At Fullmers Grind LLC, we take pride in being a family-owned and
-            operated business. We understand the importance of your property,
-            and we are here to help you with all of your stump grinding and tree
-            removal needs. Thank you for choosing Fullmers Grind LLC. We look
+            At Fullmers Grind LLC, we are proud to be a family-owned and
+            operated business. We understand how important your property is to
+            you, and we are here to help with all your stump grinding and tree
+            removal needs. Thank you for choosing Fullmers Grind LLC — we look
             forward to serving you!
           </p>
         </div>
