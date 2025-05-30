@@ -19,9 +19,9 @@ const Footer = () => {
           <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
             At Fullmers Grind LLC, we are proud to be a family-owned and
             operated business. We understand how important your property is to
-            you, and we are here to help with all your stump grinding and tree
-            removal needs. Thank you for choosing Fullmers Grind LLC — we look
-            forward to serving you!
+            you, and we are here to help with all your stump grinding needs.
+            Thank you for choosing Fullmers Grind LLC — we look forward to
+            serving you!
           </p>
         </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
               height={14}
               className="mr-[.5rem] w-[14px] h-[14px] flex my-auto"
             ></Image>
-            <p>Buffalo, NY</p>
+            <p>Buffalo, NY | Wyoming & Genesee County</p>
           </div>
           <h2 className="h4 font-bold">Contact Info:</h2>
           <div className="flex my-[.5rem]">
