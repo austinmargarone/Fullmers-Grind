@@ -5,16 +5,16 @@ import Cover from "./components/Cover";
 export const metadata: Metadata = {
   title: "Fullmers Grind LLC | Stump Grinding & Tree Removal",
   description:
-    "Fullmers Grind LLC is a family-owned and operated stump grinding and tree removal service in Rochester, NY. We offer affordable rates and free estimates.",
+    "Fullmers Grind LLC is a family-owned and operated business offering stump grinding, small tree removal and small demo work service in Western, NY. We offer affordable rates and free estimates.",
   keywords:
-    "Fullmers Grind, stump grinding, tree removal, Buffalo NY, tree service, stump removal, tree trimming, tree cutting, affordable rates, free estimates",
+    "Fullmers Grind, Fullmers Grind LLC, stump grinding, tree removal, Buffalo NY, tree service, stump removal, tree trimming, tree cutting, affordable rates, free estimates",
   openGraph: {
     images: [
       {
         url: `${baseURL}/meta.png`,
         width: 1200,
         height: 630,
-        alt: "Fullmers Grind LLC | Stump Grinding & Tree Removal",
+        alt: "Fullmers Grind LLC | Stump Grinding",
       },
     ],
   },
