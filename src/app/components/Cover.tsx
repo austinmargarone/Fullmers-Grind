@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const verticalImages = [
+  "/plow.jpg",
   "/Vertical1.jpg",
   "/Vertical2.jpg",
   "/Vertical3.jpg",

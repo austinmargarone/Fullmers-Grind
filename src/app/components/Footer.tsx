@@ -16,13 +16,23 @@ const Footer = () => {
             height={435}
             className="w-[250px] h-auto rounded-xl"
           />
-          <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
-            At Fullmers Grind LLC, we are proud to be a family-owned and
-            operated business. We understand how important your property is to
-            you, and we are here to help with all your stump grinding needs.
-            Thank you for choosing Fullmers Grind LLC — we look forward to
-            serving you!
-          </p>
+          <div className="flex-col">
+            <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.75rem] lg:mt-0 lg:ml-[.75rem]">
+              At Fullmers Grind LLC, we are proud to be a family-owned and
+              operated business. We understand how important your property is to
+              you, and we are here to help with all your stump grinding needs.
+              Thank you for choosing Fullmers Grind LLC — we look forward to
+              serving you!
+            </p>
+            <div>
+              <h2 className="max-w-[315px] sm:max-w-[375px] pt-[.75rem] lg:mt-0 lg:ml-[.75rem] h4 font-bold">
+                Services:
+              </h2>
+              <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.5rem] lg:mt-0 lg:ml-[.75rem]">
+                Stump Grinding, Small Tree Removal, Snow Removal and Small Demo
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col py-[1.25rem] lg:py-0">
@@ -37,6 +47,7 @@ const Footer = () => {
             ></Image>
             <p>Buffalo, NY | Wyoming & Genesee County</p>
           </div>
+
           <h2 className="h4 font-bold">Contact Info:</h2>
           <div className="flex my-[.5rem]">
             <Image
