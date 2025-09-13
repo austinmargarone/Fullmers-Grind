@@ -8,7 +8,7 @@ const Navbar = () => {
         <h1 className="text-xl sm:text-2xl font-bold flex items-center text-center">
           Fullmers Grind LLC
         </h1>
-        <div className="flex items-center bg-black/30 p-2 rounded-md">
+        <div className="flex items-center bg-black/30 p-2 rounded-md cursor-pointer hover:bg-black/50 transition-colors">
           <ul className="z-50 gap-[1.25rem] px-[1rem] font-bold text-white drop-shadow-lg">
             <Contact />
           </ul>

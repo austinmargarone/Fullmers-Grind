@@ -20,7 +20,7 @@ const CopyNumber = () => {
       }}
     >
       <p className="text-fullmer-whitetext">
-        <span className="hover:underline">Contact</span>
+        <span>Book Now</span>
       </p>
     </button>
   );
