@@ -34,7 +34,7 @@ const ServiceTicker: React.FC = () => {
 
     // Update animation duration based on content width for consistent speed
     const totalWidth = listWidth * (cloneCount + 1); // Total width including clones
-    const speed = 120; // Pixels per second (adjust for desired speed)
+    const speed = 150; // Pixels per second (adjust for desired speed)
     const duration = totalWidth / speed; // Calculate duration for smooth scrolling
 
     ticker.style.animationDuration = `${duration}s`;
@@ -88,7 +88,7 @@ const ServiceTicker: React.FC = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-120%);
+            transform: translateX(-150%);
           }
         }
       `}</style>
