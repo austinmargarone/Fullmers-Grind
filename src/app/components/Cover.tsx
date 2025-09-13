@@ -7,10 +7,7 @@ const Cover: React.FC = () => {
   return (
     <div>
       {/* Hero Background */}
-      <main
-        className="flex min-h-screen items-center justify-start bg-cover bg-center lg:pl-36"
-        style={{ backgroundImage: "url('/AllEquipment.jpg')" }}
-      >
+      <main className="flex min-h-screen items-center justify-start bg-cover bg-center lg:pl-36 bg-[url('/MobileBackground.jpg')] lg:bg-[url('/AllEquipment.jpg')]">
         <div className="text-white flex-col justify-center md:justify-start mx-auto lg:mx-0">
           {/* Add any hero content here */}
         </div>
