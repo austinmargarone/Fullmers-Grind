@@ -1,6 +1,7 @@
 "use client";
 
 import Slideshow from "./Slideshow";
+import ServiceTicker from "./ServiceTicker";
 
 const Cover: React.FC = () => {
   return (
@@ -14,7 +15,10 @@ const Cover: React.FC = () => {
           {/* Add any hero content here */}
         </div>
       </main>
-
+      {/* Slideshow Text */}
+      <section>
+        <ServiceTicker />
+      </section>
       {/* Image Slideshow */}
       <section className="relative w-full max-w-2xl mx-auto p-6">
         <Slideshow />
