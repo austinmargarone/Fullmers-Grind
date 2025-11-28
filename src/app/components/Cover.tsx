@@ -11,11 +11,10 @@ const Cover: React.FC = () => {
         <div className="text-white flex-col justify-center md:justify-start mx-auto lg:mx-0">
           {/* Add any hero content here */}
         </div>
+        <div className="absolute inset-x-0 bottom-0 z-20">
+          <ServiceTicker />
+        </div>
       </main>
-      {/* Slideshow Text */}
-      <section>
-        <ServiceTicker />
-      </section>
       {/* Image Slideshow */}
       <section className="relative w-full max-w-2xl mx-auto p-6">
         <Slideshow />
