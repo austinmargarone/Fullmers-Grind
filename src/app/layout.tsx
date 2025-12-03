@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Fullmers Grind LLC is a family-owned and operated business offering stump grinding, small tree removal and small demo work service in Western, NY. We offer affordable rates and free estimates.",
   keywords:
-    "Fullmers Grind, Fullmers Grind LLC, stump grinding, tree removal, Buffalo NY, tree service, stump removal, tree trimming, tree cutting, affordable rates, free estimates",
+    "Fullmers Grind, Fullmers Grind LLC, stump grinding, tree removal, Buffalo NY, tree service, stump removal, tree trimming, tree cutting, Snow Plowing, affordable rates, free estimates, Attica NY, Wyoming County, Bennington NY",
   openGraph: {
     images: [
       {
