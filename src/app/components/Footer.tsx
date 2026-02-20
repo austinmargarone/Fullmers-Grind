@@ -29,7 +29,8 @@ const Footer = () => {
                 Services:
               </h2>
               <p className="text-white max-w-[315px] sm:max-w-[375px] mt-[.5rem] lg:mt-0 lg:ml-[.75rem]">
-                Stump Grinding, Small Tree Removal, Snow Removal and Small Demo
+                Stump Grinding, Small Tree Removal, Snow Removal, Small Demo and
+                Junk Removal
               </p>
             </div>
           </div>
