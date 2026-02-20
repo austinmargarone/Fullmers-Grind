@@ -7,6 +7,7 @@ const services = [
   "Snow Plowing",
   "Small Tree Removal",
   "Small Demo",
+  "Junk Removal",
   "|",
 ];
 
