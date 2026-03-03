@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row md:flex-wrap text-white justify-evenly md:gap-[.33rem] lg:gap-0">
         <div className="flex flex-col lg:flex-row">
           <Image
-            src="/Logo.jpeg"
+            src="/Fullmers grind llc.svg"
             alt="Fullmers Grind LLC"
             width={574}
             height={435}
