@@ -1,7 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "../../ThemeProvider";
 import Footer from "./components/Footer";
@@ -22,6 +21,12 @@ export const metadata: Metadata = {
   keywords:
     "Fullmers Grind, Fullmers Grind LLC, stump grinding, tree removal, Buffalo NY, tree service, stump removal, tree trimming, tree cutting, Snow Plowing, affordable rates, free estimates, Attica NY, Wyoming County, Bennington NY",
   openGraph: {
+    title: "Fullmers Grind LLC | Stump Grinding & Tree Removal",
+    description:
+      "Fullmers Grind LLC is a family-owned and operated business offering stump grinding, small tree removal and small demo work service in Western, NY.",
+    url: "https://fullmersgrind.com",
+    siteName: "Fullmers Grind LLC",
+    type: "website",
     images: [
       {
         url: `${baseURL}/meta.png`,
