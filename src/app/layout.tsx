@@ -6,6 +6,8 @@ import { ThemeProvider } from "../../ThemeProvider";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ToastProvider from "./components/ui/ToastProvider";
+import "./globals.css";
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
