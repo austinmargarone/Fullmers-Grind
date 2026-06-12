@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import React from "react";
 import { ThemeProvider } from "../../ThemeProvider";
 import Footer from "./components/Footer";
@@ -52,8 +53,20 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <ToastProvider /> {/* ✅ render it here */}
+          <ToastProvider />
         </ThemeProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18117004957"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18117004957');
+          `}
+        </Script>
       </body>
     </html>
   );

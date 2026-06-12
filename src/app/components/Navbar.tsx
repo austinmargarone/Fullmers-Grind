@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className="z-50 top-0 fixed flex w-full items-center justify-between gap-5 bg-white/5 backdrop-blur-md p-6 px-[1.25rem] shadow-md border-b border-white/20">
-        <h1 className="text-xl sm:text-2xl font-bold flex items-center text-center">
+        <h1 className="text-xl sm:text-2xl font-bold flex items-center text-center text-white drop-shadow-lg">
           Fullmers Grind LLC
         </h1>
         <div className="flex items-center bg-black/30 p-2 rounded-md cursor-pointer hover:bg-black/50 transition-colors">
