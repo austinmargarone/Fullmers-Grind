@@ -26,6 +26,10 @@ const slides: Slide[] = [
   { src: "/TreeDown.jpg", alt: "Tree Down" },
   { src: "/Landscape.jpg", alt: "Landscape" },
   { src: "/Landscape1.jpg", alt: "Landscape 1" },
+  { src: "/Demo1.jpg", alt: "Demo 1" },
+  { src: "/Demo2.jpg", alt: "Demo 2" },
+  { src: "/Demo3.jpg", alt: "Demo 3" },
+  { src: "/Demo4.jpg", alt: "Demo 4" },
 ];
 
 const Slideshow: React.FC = () => {
