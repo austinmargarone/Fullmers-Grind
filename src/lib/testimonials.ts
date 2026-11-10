@@ -15,6 +15,6 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [];
 
-// Link to the full review list (e.g. the Google Business Profile reviews URL).
-// Leave empty to hide the "Read more reviews" link.
-export const reviewsUrl = "";
+// Link to the Google Business Profile, where customers can read and leave reviews.
+// Leave empty to hide the reviews link.
+export const reviewsUrl = "https://share.google/ZuzMB7VByf0iskAOw";
