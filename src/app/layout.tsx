@@ -1,9 +1,7 @@
-// src/app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import React from "react";
-import { ThemeProvider } from "../../ThemeProvider";
 import { business, SITE_URL } from "@/lib/site";
 import { services } from "@/lib/services";
 import Footer from "./components/Footer";
@@ -92,12 +90,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} bg-[#1B1B1B] font-sans`}>
         <JsonLd data={localBusiness} />
-        <ThemeProvider>
-          <Navbar />
-          {children}
-          <Footer />
-          <ToastProvider />
-        </ThemeProvider>
+        <Navbar />
+        {children}
+        <Footer />
+        <ToastProvider />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18117004957"
           strategy="afterInteractive"
