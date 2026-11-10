@@ -90,9 +90,11 @@ const Footer = () => {
 
       <div className="mx-auto mt-10 flex max-w-7xl justify-center lg:justify-end">
         <Link href="https://www.fcvt.dev/" target="_blank" rel="noopener">
-          <span className="flex h-[48px] w-[205px] flex-col items-start justify-center rounded-lg border border-white/60 px-4 text-white">
-            <span className="text-[.5rem]">Developed by</span>
-            <span className="pb-1">Flower City Virtual Tours</span>
+          <span className="flex h-[48px] w-[205px] items-center justify-center rounded-lg border border-gray-200 text-white">
+            <span className="flex flex-col items-start whitespace-nowrap leading-tight">
+              <span className="text-[.5rem]">Developed by</span>
+              <span className="pb-1">Flower City Virtual Tours</span>
+            </span>
           </span>
         </Link>
       </div>
