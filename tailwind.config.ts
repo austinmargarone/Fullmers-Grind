@@ -18,6 +18,9 @@ export default {
         },
         ink: "#1B1B1B",
       },
+      keyframes: {
+        fadeIn: { from: { opacity: "0" }, to: { opacity: "1" } },
+      },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
       },

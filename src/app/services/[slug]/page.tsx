@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { business, SITE_URL } from "@/lib/site";
@@ -8,6 +7,7 @@ import JsonLd from "../../components/JsonLd";
 import CtaBand from "../../components/sections/CtaBand";
 import PageHero from "../../components/sections/PageHero";
 import ServiceCards from "../../components/sections/ServiceCards";
+import ServiceGallery, { FeaturePhoto } from "../../components/sections/ServiceGallery";
 
 type Params = { slug: string };
 
@@ -127,33 +127,13 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
           </p>
         </div>
 
-        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src={hero.src}
-            alt={hero.alt}
-            fill
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            className="object-cover"
-          />
-        </div>
+        <FeaturePhoto images={service.images} />
       </section>
 
       {gallery.length > 0 && (
         <section className="section pt-0" aria-labelledby="gallery-heading">
           <h2 id="gallery-heading" className="mb-6 text-2xl font-bold">Photos</h2>
-          <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {gallery.map((img) => (
-              <li key={img.src} className="relative aspect-square overflow-hidden rounded-lg border border-white/10">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                  className="object-cover transition duration-500 hover:scale-105"
-                />
-              </li>
-            ))}
-          </ul>
+          <ServiceGallery images={service.images} />
         </section>
       )}
 
