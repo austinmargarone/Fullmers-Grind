@@ -18,6 +18,9 @@ npm run dev                  # http://localhost:3000
 
 Other scripts: `npm run build` (production build), `npm run lint`.
 
+The Inter font is self-hosted from `src/app/fonts/` (SIL Open Font License, see `OFL.txt`),
+so builds and dev don't depend on reaching Google Fonts.
+
 ## Pages
 
 | Route | What it is |

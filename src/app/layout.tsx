@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import React from "react";
 import { business, SITE_URL } from "@/lib/site";
@@ -10,9 +10,14 @@ import Navbar from "./components/Navbar";
 import ToastProvider from "./components/ui/ToastProvider";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+// Inter (variable, weights 100–900), self-hosted from src/app/fonts.
+// Self-hosting avoids fetching Google Fonts at build time, which breaks
+// Turbopack dev on Next 15.1 and fails on offline builds.
+const inter = localFont({
+  src: "./fonts/InterVariable-latin.woff2",
+  weight: "100 900",
+  style: "normal",
+  display: "swap",
   variable: "--font-inter",
 });
 
