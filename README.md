@@ -88,32 +88,47 @@ don't show up sideways anywhere.
 ## Form email
 
 The contact and estimate forms use a Next.js server action
-(`src/app/actions/forms.ts`) that emails each submission through
-[Resend](https://resend.com). Replies go straight to the customer (their email
-is set as Reply-To).
+(`src/app/actions/forms.ts`) that validates the submission and sends it through
+[EmailJS](https://www.emailjs.com)'s REST API from the server
+(`src/lib/email.ts`). Keys never reach the browser. Replies go straight to the
+customer (their email is set as Reply-To).
 
-Setup:
+Setup (uses Flower City's existing EmailJS account; one template covers both forms):
 
-1. Create a Resend account and add the domain **fullmersgrind.com**. Add the
-   DNS records Resend gives you, wherever the domain's DNS is managed, then
-   wait for it to show **Verified**.
-2. Create an API key.
-3. In Vercel → Project → Settings → Environment Variables, add:
+1. **Account → Security:** turn on **Allow EmailJS API for non-browser applications**.
+2. **Email Services:** use an existing connected service or add one; copy its **Service ID**.
+3. **Email Templates → Create New Template**, then set:
 
-   | Variable | Example | Required |
-   | --- | --- | --- |
-   | `RESEND_API_KEY` | `re_...` | yes |
-   | `CONTACT_FROM_EMAIL` | `Fullmers Grind Website <website@fullmersgrind.com>` | yes (must use the verified domain) |
-   | `CONTACT_TO_EMAIL` | `fullmersgrind@yahoo.com` | no (defaults to the business email; comma-separate for several) |
+   | Field | Value |
+   | --- | --- |
+   | Subject | `{{subject}}` |
+   | To Email | `{{to_email}}` |
+   | From Name | `Fullmers Grind Website` |
+   | Reply To | `{{reply_to}}` |
+   | Content (switch the editor to code / HTML) | `{{{message_html}}}` |
 
-4. Redeploy, then send a test from `/contact` and `/estimate`.
+   The triple braces matter: they let the formatted table render instead of
+   showing raw HTML. Save and copy the **Template ID**.
+4. **Account → General:** copy the **Public Key** and **Private Key**.
+5. In Vercel → Project → Settings → Environment Variables (Production + Preview):
 
-If these aren't set, or Resend is down, the form shows the customer the phone
-number and email to reach out directly, keeps what they typed, and logs the
-error in Vercel's function logs (search for `[email]`).
+   | Variable | Required |
+   | --- | --- |
+   | `EMAILJS_SERVICE_ID` | yes |
+   | `EMAILJS_TEMPLATE_ID` | yes |
+   | `EMAILJS_PUBLIC_KEY` | yes |
+   | `EMAILJS_PRIVATE_KEY` | yes |
+   | `CONTACT_TO_EMAIL` | no (defaults to fullmersgrind@yahoo.com; comma-separate for several) |
 
-Spam protection is a hidden honeypot field. If spam becomes a problem, add
-Cloudflare Turnstile or rate limiting.
+6. **Redeploy** (env vars only apply to new deployments), then send a test from
+   `/contact` and `/estimate`.
+
+If the keys aren't set, or EmailJS is down, the form shows the customer the
+phone number and email to reach out directly, keeps what they typed, and logs
+the error in Vercel's function logs (search for `[email]`).
+
+Spam protection is a hidden honeypot field. Each real submission uses one
+EmailJS request from the shared monthly quota.
 
 ## SEO
 
