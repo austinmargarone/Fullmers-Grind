@@ -10,6 +10,10 @@ interface Slide {
 }
 
 const slides: Slide[] = [
+  { src: "/StumpGrinding-Trailer.jpg", alt: "Stump ground below grade with the Fullmers Grind trailer behind" },
+  { src: "/TreeRemoval-Lift.jpg", alt: "Tree being taken down from a boom lift" },
+  { src: "/TreeRemoval-Chipper.jpg", alt: "Wood chipper and boom lift on a tree removal job" },
+  { src: "/StumpGrinding-After1.jpg", alt: "Lawn after several stumps were ground out" },
   { src: "/plow.jpg", alt: "Snow plow truck ready for winter" },
   { src: "/Grinder.jpg", alt: "Fullmers Grind stump grinder" },
   { src: "/Equipment.jpg", alt: "Stump grinder, chainsaw and brush equipment" },
