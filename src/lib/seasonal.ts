@@ -10,7 +10,7 @@ export const winter = {
   snow: true,
   popup: true,
   /** Seconds before the pop-up appears */
-  popupDelaySeconds: 5,
+  popupDelaySeconds: 1,
   /** Pages where the pop-up never appears */
   popupExcludePaths: ["/estimate", "/contact"],
 };

@@ -137,7 +137,7 @@ list" pop-up, with snow falling over the dimmed page behind it, that links to
 `/estimate?service=Snow%20Removal`. It turns on and off by itself each year.
 
 Settings live in `src/lib/seasonal.ts`: the months, turning the snow or the pop-up
-off, the delay before the pop-up (5s), and pages it never appears on
+off, the delay before the pop-up (1s), and pages it never appears on
 (`/estimate`, `/contact`). The pop-up shows once per visitor per winter
 (remembered in the browser); the snow is skipped for visitors with "reduce
 motion" turned on.
