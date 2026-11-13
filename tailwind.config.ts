@@ -19,6 +19,7 @@ export default {
       keyframes: {
         fadeIn: { from: { opacity: "0" }, to: { opacity: "1" } },
         ticker: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
+        popIn: { from: { opacity: "0", transform: "translateY(24px) scale(0.98)" }, to: { opacity: "1", transform: "translateY(0) scale(1)" } },
       },
       animation: {
         ticker: "ticker 40s linear infinite",

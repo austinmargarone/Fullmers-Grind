@@ -130,6 +130,20 @@ the error in Vercel's function logs (search for `[email]`).
 Spam protection is a hidden honeypot field. Each real submission uses one
 EmailJS request from the shared monthly quota.
 
+## Seasonal: snow + plowing pop-up
+
+From **November through March** the site shows light snowfall and a one-time
+"Get on the plow list" pop-up that links to `/estimate?service=Snow%20Removal`.
+Both turn on and off by themselves each year.
+
+Settings live in `src/lib/seasonal.ts`: the months, turning snow or the pop-up
+off, the delay before the pop-up (5s), and pages it never appears on
+(`/estimate`, `/contact`). The pop-up shows once per visitor per winter
+(remembered in the browser); snow is skipped for visitors with "reduce
+motion" turned on.
+
+To see the pop-up again while testing, open the site in a private window.
+
 ## SEO
 
 - Per-page titles and descriptions via the Next.js Metadata API (title template in `src/app/layout.tsx`)
