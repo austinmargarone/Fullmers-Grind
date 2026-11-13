@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import JsonLd from "./components/JsonLd";
 import Navbar from "./components/Navbar";
 import ToastProvider from "./components/ui/ToastProvider";
+import SeasonalEffects from "./components/seasonal/SeasonalEffects";
 import "./globals.css";
 
 // Inter (variable, weights 100–900), self-hosted from src/app/fonts.
@@ -99,6 +100,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ToastProvider />
+        <SeasonalEffects />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18117004957"
           strategy="afterInteractive"
