@@ -5,11 +5,11 @@ import { useEffect, useRef } from "react";
 type Flake = { x: number; y: number; r: number; vy: number; drift: number; phase: number; alpha: number };
 
 /**
- * Light snowfall drawn on one fixed canvas behind nothing interactive
+ * Light snowfall drawn on one canvas that never blocks clicks
  * (pointer-events: none). Pauses when the tab is hidden and does not run
  * for visitors with "reduce motion" turned on.
  */
-export default function Snowfall() {
+export default function Snowfall({ className = "fixed inset-0 z-[45]" }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export default function Snowfall() {
     <canvas
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[45] motion-reduce:hidden"
+      className={`pointer-events-none motion-reduce:hidden ${className}`}
     />
   );
 }

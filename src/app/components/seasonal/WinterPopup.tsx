@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { business } from "@/lib/site";
 import { seasonKey, winter } from "@/lib/seasonal";
+import Snowfall from "./Snowfall";
 
 const ESTIMATE_HREF = `/estimate?service=${encodeURIComponent("Snow Removal")}`;
 
@@ -30,7 +31,8 @@ function markSeen() {
 }
 
 /**
- * Snow plowing offer shown once per visitor per winter, after a short delay.
+ * Snow plowing offer shown once per visitor per winter, after a short delay,
+ * with snow falling over the dimmed page while it's open.
  * Centered card on desktop, bottom sheet on phones (Google penalizes
  * full-screen pop-ups on mobile page entry).
  */
@@ -75,6 +77,7 @@ export default function WinterPopup() {
         onClick={close}
         aria-hidden
       />
+      {winter.snow && <Snowfall className="absolute inset-0" />}
       <div
         role="dialog"
         aria-modal="true"

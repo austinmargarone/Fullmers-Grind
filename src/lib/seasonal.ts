@@ -1,4 +1,4 @@
-// Seasonal features (snowfall + snow plowing pop-up).
+// Seasonal snow plowing pop-up (with snowfall behind it).
 // Turns on automatically each winter and off in spring; edit the months here.
 
 export const winter = {
@@ -6,6 +6,7 @@ export const winter = {
   startMonth: 11, // November
   /** Last month (1-12) the winter features show */
   endMonth: 3, // March
+  /** Snow falling behind the pop-up while it's open */
   snow: true,
   popup: true,
   /** Seconds before the pop-up appears */
