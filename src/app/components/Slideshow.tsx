@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Lightbox from "./Lightbox";
 
 interface Slide {
   src: string;
@@ -9,41 +10,43 @@ interface Slide {
 }
 
 const slides: Slide[] = [
-  { src: "/plow.jpg", alt: "Plow" },
-  { src: "/Grinder.jpg", alt: "Grinder" },
-  { src: "/Equipment.jpg", alt: "Equipment" },
-  { src: "/X1.jpg", alt: "X1" },
-  { src: "/Vertical1.jpg", alt: "Vertical 1" },
-  { src: "/Vertical2.jpg", alt: "Vertical 2" },
-  { src: "/Vertical3.jpg", alt: "Vertical 3" },
-  { src: "/Vertical4.jpg", alt: "Vertical 4" },
-  { src: "/BeforeDemo.jpg", alt: "Before Demo" },
-  { src: "/AfterDemo.jpg", alt: "After Demo" },
-  { src: "/X.jpg", alt: "X" },
-  { src: "/X2.jpg", alt: "X2" },
-  { src: "/X3.jpg", alt: "X3" },
-  { src: "/ZeroTurn.jpg", alt: "Zero Turn" },
-  { src: "/TreeDown.jpg", alt: "Tree Down" },
-  { src: "/Landscape.jpg", alt: "Landscape" },
-  { src: "/Landscape1.jpg", alt: "Landscape 1" },
-  { src: "/Demo1.jpg", alt: "Demo 1" },
-  { src: "/Demo2.jpg", alt: "Demo 2" },
-  { src: "/Demo3.jpg", alt: "Demo 3" },
-  { src: "/Demo4.jpg", alt: "Demo 4" },
+  { src: "/plow.jpg", alt: "Snow plow truck ready for winter" },
+  { src: "/Grinder.jpg", alt: "Fullmers Grind stump grinder" },
+  { src: "/Equipment.jpg", alt: "Stump grinder, chainsaw and brush equipment" },
+  { src: "/X1.jpg", alt: "Mini excavator clearing an overgrown field" },
+  { src: "/Vertical1.jpg", alt: "Tree stump before grinding" },
+  { src: "/Vertical2.jpg", alt: "Same spot after stump grinding" },
+  { src: "/Vertical3.jpg", alt: "Cut tree stump in a lawn" },
+  { src: "/Vertical4.jpg", alt: "Ground stump area in a yard" },
+  { src: "/BeforeDemo.jpg", alt: "Old shed before demolition" },
+  { src: "/AfterDemo.jpg", alt: "Cleared ground after shed demolition" },
+  { src: "/X.jpg", alt: "CAT mini excavator" },
+  { src: "/X2.jpg", alt: "Mini excavator clearing brush" },
+  { src: "/X3.jpg", alt: "Excavator loading a dumpster" },
+  { src: "/ZeroTurn.jpg", alt: "Zero-turn mower" },
+  { src: "/TreeDown.jpg", alt: "Downed tree in a backyard" },
+  { src: "/Landscape.jpg", alt: "Mulched garden bed with stone border" },
+  { src: "/Landscape1.jpg", alt: "Fresh mulch bed around a lamp post" },
+  { src: "/Demo1.jpg", alt: "Small outbuilding ready for demolition" },
+  { src: "/Demo2.jpg", alt: "Demolition debris being cleared" },
+  { src: "/Demo3.jpg", alt: "Clearing debris from the excavator cab" },
+  { src: "/Demo4.jpg", alt: "Site after demolition cleanup" },
 ];
 
 const Slideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const touchX = useRef<number | null>(null);
 
   // Auto-advance slides
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || lightbox !== null) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, lightbox]);
 
   const goToPrevious = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
@@ -72,13 +75,25 @@ const Slideshow: React.FC = () => {
       style={{ aspectRatio: "1048 / 1536" }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+      onTouchEnd={(e) => {
+        if (touchX.current === null) return;
+        const dx = e.changedTouches[0].clientX - touchX.current;
+        touchX.current = null;
+        if (Math.abs(dx) > 50) (dx < 0 ? goToNext : goToPrevious)();
+      }}
     >
       {/* Slides */}
       {slides.map((slide, index) => (
-        <div
+        <button
+          type="button"
           key={index}
-          className={`absolute inset-0 transition-opacity duration-500 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
+          onClick={() => setLightbox(index)}
+          tabIndex={index === currentSlide ? 0 : -1}
+          aria-hidden={index !== currentSlide}
+          aria-label={`View photo full screen: ${slide.alt}`}
+          className={`absolute inset-0 cursor-zoom-in transition-opacity duration-500 ${
+            index === currentSlide ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
           <Image
@@ -92,7 +107,7 @@ const Slideshow: React.FC = () => {
             style={{ objectFit: "contain", objectPosition: "center" }}
             priority={index === 0}
           />
-        </div>
+        </button>
       ))}
 
       {/* Left Arrow */}
@@ -150,6 +165,15 @@ const Slideshow: React.FC = () => {
           />
         ))}
       </div>
+
+      <Lightbox
+        images={slides}
+        index={lightbox}
+        onChange={(i) => {
+          setLightbox(i);
+          if (i !== null) setCurrentSlide(i);
+        }}
+      />
     </div>
   );
 };

@@ -1,99 +1,45 @@
-"use client";
+import Link from "next/link";
+import { services } from "@/lib/services";
 
-import { useRef, useEffect } from "react";
-
-const services = [
-  "Stump Grinding",
-  "Snow Plowing",
-  "Small Tree Removal",
-  "Small Demo",
-  "Junk Removal",
-  "|",
-];
+/**
+ * Scrolling services bar under the homepage hero.
+ * The list is rendered twice and shifted by exactly one copy's width, so the
+ * loop is seamless at any screen size. Pauses on hover and respects
+ * the user's reduced-motion setting.
+ */
+function Track({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <ul className="flex flex-none items-center" aria-hidden={hidden || undefined}>
+      {/* repeat within each copy so one copy is always wider than the screen */}
+      {[0, 1].flatMap((rep) =>
+        services.map((s) => (
+          <li key={`${rep}-${s.slug}`} className="flex flex-none items-center">
+            <Link
+              href={`/services/${s.slug}`}
+              tabIndex={hidden || rep > 0 ? -1 : undefined}
+              className="whitespace-nowrap px-8 text-lg font-semibold text-white transition-colors hover:text-brand"
+            >
+              {s.name}
+            </Link>
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden />
+          </li>
+        ))
+      )}
+    </ul>
+  );
+}
 
 const ServiceTicker: React.FC = () => {
-  const tickerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ticker = tickerRef.current;
-    if (!ticker) return;
-
-    const firstList = ticker.children[0] as HTMLElement;
-    const listWidth = firstList.offsetWidth; // Get the width of the original list
-    const cloneCount = Math.ceil(window.innerWidth / listWidth) + 1; // Enough clones to cover viewport + buffer
-
-    // Clear any existing clones to avoid duplicates on re-render
-    while (ticker.children.length > 1) {
-      ticker.removeChild(ticker.children[1]);
-    }
-
-    // Add clones based on calculated count
-    for (let i = 0; i < cloneCount; i++) {
-      const clone = firstList.cloneNode(true) as HTMLElement;
-      ticker.appendChild(clone);
-    }
-
-    // Update animation duration based on content width for consistent speed
-    const totalWidth = listWidth * (cloneCount + 1); // Total width including clones
-    const speed = 150; // Pixels per second (adjust for desired speed)
-    const duration = totalWidth / speed; // Calculate duration for smooth scrolling
-
-    ticker.style.animationDuration = `${duration}s`;
-  }, []);
-
   return (
-    <div
-      style={{
-        width: "100%",
-        overflow: "hidden",
-        backgroundColor: "rgba(255, 255, 255, 0.0777)", // bg-white/5 for glassy effect
-        backdropFilter: "blur(8px)", // backdrop-blur-md
-        color: "#FFFFFF", // text-white
-        paddingTop: "1rem", // py-4
-        paddingBottom: "1rem",
-      }}
+    <nav
+      aria-label="Services"
+      className="group overflow-hidden border-t border-white/10 bg-white/[0.08] py-4 backdrop-blur-md"
     >
-      <div
-        ref={tickerRef}
-        style={{
-          display: "flex",
-          whiteSpace: "nowrap",
-          animation: "ticker linear infinite",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            gap: "2rem", // space-x-8
-          }}
-        >
-          {services.map((service, index) => (
-            <span
-              key={index}
-              style={{
-                fontSize: "1.125rem", // text-lg
-                fontWeight: "600", // font-semibold
-                minWidth: "200px", // Minimum width for consistent spacing
-                textAlign: "center",
-                display: "inline-block", // Ensure consistent width
-              }}
-            >
-              {service}
-            </span>
-          ))}
-        </div>
+      <div className="flex w-max animate-ticker group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+        <Track />
+        <Track hidden />
       </div>
-      <style jsx>{`
-        @keyframes ticker {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-150%);
-          }
-        }
-      `}</style>
-    </div>
+    </nav>
   );
 };
 
