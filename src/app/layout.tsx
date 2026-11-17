@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import React from "react";
@@ -101,6 +102,7 @@ export default function RootLayout({
         <Footer />
         <ToastProvider />
         <SeasonalEffects />
+        <Analytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18117004957"
           strategy="afterInteractive"
